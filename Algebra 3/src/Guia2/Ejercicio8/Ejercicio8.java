@@ -4,7 +4,12 @@
 
 package Guia2.Ejercicio8;
 
-public class Ejercicio8 {
+import Guia2.Practice2;
 
+public abstract class Ejercicio8 implements Practice2 {
 
+    /*@Override
+    public long exercise8(int m, int n) {
+
+    }*/
 }
