@@ -10,6 +10,6 @@ public class Ejercicio10Test {
 
     @Test
     public void ejercicio10() {
-
+        //
     }
 }
