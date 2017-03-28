@@ -3,7 +3,6 @@
 // Ejercicio: 8), 9), 10), 11)
 
 package Guia2;
-
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
