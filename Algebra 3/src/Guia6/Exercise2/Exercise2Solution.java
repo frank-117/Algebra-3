@@ -6,6 +6,7 @@ public class Exercise2Solution implements Exercise2 {
 
     @Override
     public boolean exerciseA(double[][] matrix, Calculator calculator) {
+
         return false;
     }
 
