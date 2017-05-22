@@ -176,7 +176,7 @@ public class Exercise3Solution implements Exercise3 {
     public double[][] exerciseCIII(double[][] matrixA, double[][] matrixB, Calculator calculator) {
         int counter = 2;
         double result[][] = new double[matrixA.length][matrixA.length];
-        for(int i = 0; i<matrixA.length ; i++){
+        for(int i = 0; i<matrixA.length && i<counter; i++){
             for(int j=0; j<matrixA.length && j<= i+2 ; j++){
                 for(int k = 0; k<matrixA.length && k<=i+2 ; k++){
                     result[i][j] = calculator.sum(result[i][j], calculator.multiplication(matrixA[k][j],matrixB[i][k]));
@@ -194,7 +194,7 @@ public class Exercise3Solution implements Exercise3 {
         double[] result = new double[vectorX.length];
         int counter = k1A;
         for(int i = 0; i<counter && i<matrixA.length ; i++){
-            for(int j=0; j<matrixA[i].length && j<= k2A ; j++){
+            for(int j=0; j<matrixA[i].length && j<= i+k2A ; j++){
                 result[i] = calculator.sum(result[i], calculator.multiplication(matrixA[i][j], vectorX[j]));
             }
             counter++;

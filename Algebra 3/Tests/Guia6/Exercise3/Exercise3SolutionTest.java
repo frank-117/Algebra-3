@@ -176,6 +176,14 @@ public class Exercise3SolutionTest extends CalculatorAbstract {
 
     @Test
     public void exerciseDI() throws Exception {
+        double[][] matrix = { {3,8,0,0}, {5,2,1,0}, {0,9,7,6},{0,0,4,5}};
+        double[] vector = {6,8,9,1};
+        Exercise3Solution exercise = new Exercise3Solution();
+        double[] result = exercise.exerciseDI(matrix,1,1,vector,calculator);
+        assertEquals(result[0], 82 , 0.1);
+        assertEquals(result[1], 55 , 0.1);
+        assertEquals(result[2], 141, 0.1);
+        assertEquals(result[3], 41 , 0.1);
     }
 
     @Test
