@@ -14,9 +14,11 @@ public class Exercise4Solution implements Exercise4 {
         }
         int counter= 0;
         for(int i= 0; i<matrixLength ; i++){
-            for(int j = 0; j<matrixLength && i<=j; j++){
-                result[j][i] = sumVector[counter];
-                counter++;
+            for(int j = 0; j<matrixLength ; j++){
+                if(i<=j) {
+                    result[j][i] = sumVector[counter];
+                    counter++;
+                }
             }
         }
         return result;

@@ -215,6 +215,16 @@ public class Exercise3Solution implements Exercise3 {
 
     @Override
     public double[][] exerciseE(double[][] matrixA, double[][] matrixB, Calculator calculator) {
-        return new double[0][];
+        double result[][] = new double[matrixA.length][matrixA.length];
+        for(int i = 0; i<matrixA.length ; i++){
+            for(int j=0; j<matrixA.length && j<= i+2 ; j++){
+                for(int k = 0; k<matrixA.length && k<=i+2 ; k++){
+                    result[i][j] = calculator.sum(result[i][j], calculator.multiplication(matrixA[k][j],matrixB[i][k]));
+                }
+
+            }
+        }
+
+        return result;
     }
 }

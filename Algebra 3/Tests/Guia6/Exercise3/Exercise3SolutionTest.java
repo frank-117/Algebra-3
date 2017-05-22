@@ -196,5 +196,18 @@ public class Exercise3SolutionTest extends CalculatorAbstract {
 
     @Test
     public void exerciseE() throws Exception {
+        double[][] matrix = {{3,0,0}, {5,3,0}, {4,8,5} };
+        double[][] matrix2= {{6,5,2}, {0,4,3}, {0,0,4}};
+        Exercise3Solution exercise = new Exercise3Solution();
+        double[][] result = exercise.exerciseE(matrix, matrix2, calculator);
+        assertEquals(result[0][0], 51, 0.1);
+        assertEquals(result[0][1], 31 , 0.1);
+        assertEquals(result[0][2], 10 , 0.1);
+        assertEquals(result[1][0], 32, 0.1);
+        assertEquals(result[1][1], 36, 0.1);
+        assertEquals(result[1][2], 15 , 0.1);
+        assertEquals(result[2][0], 16, 0.1);
+        assertEquals(result[2][1], 32, 0.1);
+        assertEquals(result[2][2], 20, 0.1);
     }
 }
