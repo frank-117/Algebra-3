@@ -29,5 +29,6 @@ public class Exercise4SolutionTest extends CalculatorAbstract {
         assertEquals(result[3][1], 12, 0.1);
         assertEquals(result[3][2], 11, 0.1);
         assertEquals(result[3][3], 4 , 0.1);
+
     }
 }
