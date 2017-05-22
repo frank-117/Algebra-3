@@ -1,3 +1,7 @@
+// Nombres: Tomas Varela, Franco Velardez
+// Guía: N°6
+// Ejercicio: 2)
+
 package Guia6.Exercise3;
 
 import Guia6.Calculator.Calculator;
@@ -255,8 +259,8 @@ public class Exercise3Solution implements Exercise3 {
         int counter2 = k1B;
         double result[][] = new double[matrixA.length][matrixA.length];
         for(int i = 0; i<matrixA.length && i<counter1 && i<counter2; i++){
-            for(int j=0; j<matrixA.length && j<= i+2 ; j++){
-                for(int k = 0; k<matrixA.length && k<=i+2 ; k++){
+            for(int j=0; j<matrixA.length && j<= k2A+2 ; j++){
+                for(int k = 0; k<matrixA.length && k<=k2B+2 ; k++){
                     result[i][j] = calculator.sum(result[i][j], calculator.multiplication(matrixA[k][j],matrixB[i][k]));
                 }
 

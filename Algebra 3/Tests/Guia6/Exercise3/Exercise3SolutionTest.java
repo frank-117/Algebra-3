@@ -1,3 +1,7 @@
+// Nombres: Tomas Varela, Franco Velardez
+// Guía: N°6
+// Ejercicio: 3)
+
 package Guia6.Exercise3;
 
 import Guia6.CalculatorAbstract.CalculatorAbstract;
@@ -236,7 +240,7 @@ public class Exercise3SolutionTest extends CalculatorAbstract {
 
     @Test
     public void exerciseE() throws Exception {
-        double[][] matrix = {{3,0,0}, {5,3,0}, {4,8,5} };
+        double[][] matrix = {{3,0,0}, {5,3,0}, {4,8,5}};
         double[][] matrix2= {{6,5,2}, {0,4,3}, {0,0,4}};
         Exercise3Solution exercise = new Exercise3Solution();
         double[][] result = exercise.exerciseE(matrix, matrix2, calculator);
