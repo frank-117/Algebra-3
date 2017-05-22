@@ -189,6 +189,15 @@ public class Exercise3Solution implements Exercise3 {
         return result;
     }
 
+    /**
+     *
+     * @param matrixA
+     * @param k1A amount of diagonals up from the main diagonal that are not zeros
+     * @param k2A amount of diagonals down from the main diagonal that are not zeros
+     * @param vectorX
+     * @param calculator
+     * @return the multiplication between the matrix and the vector
+     */
     @Override
     public double[] exerciseDI(double[][] matrixA, int k1A, int k2A, double[] vectorX, Calculator calculator) {
         double[] result = new double[vectorX.length];
@@ -203,16 +212,69 @@ public class Exercise3Solution implements Exercise3 {
         return result;
     }
 
+    /**
+     *
+     * @param matrixA
+     * @param k1A amount of diagonals up from the main diagonal that are not zeros on matrixA
+     * @param k2A amount of diagonals down from the main diagonal that are not zeros on matrixA
+     * @param matrixB
+     * @param k1B amount of diagonals up from the main diagonal that are not zeros on matrixB
+     * @param k2B amount of diagonals down from the main diagonal that are not zeros on matrixB
+     * @param calculator
+     * @return the sum between the two matrices
+     */
     @Override
     public double[][] exerciseDII(double[][] matrixA, int k1A, int k2A, double[][] matrixB, int k1B, int k2B, Calculator calculator) {
-        return new double[0][];
-    }
+        double result[][] = new double[matrixA.length][matrixA.length];
+        int counter1 = k1A;
+        int counter2 = k1B;
+        for(int i = 0 , k = 0; (i<matrixA.length && i<counter1) || (k<matrixB.length && k<counter2) ; i++ , k++){
+            for(int j=0, l=0; (j<matrixA[i].length && j<= i+k2A) || (l<matrixA[k].length && l<=k+k2B); j++ , l++){
+                result[i][j] = calculator.sum(matrixA[i][j], matrixB[k][l]);
+            }
+            counter1++;
+            counter2++;
+        }
 
+        return result;
+    }
+    /**
+     *
+     * @param matrixA
+     * @param k1A amount of diagonals up from the main diagonal that are not zeros on matrixA
+     * @param k2A amount of diagonals down from the main diagonal that are not zeros on matrixA
+     * @param matrixB
+     * @param k1B amount of diagonals up from the main diagonal that are not zeros on matrixB
+     * @param k2B amount of diagonals down from the main diagonal that are not zeros on matrixB
+     * @param calculator
+     * @return the multiplication between the two matrices
+     */
     @Override
     public double[][] exerciseDIII(double[][] matrixA, int k1A, int k2A, double[][] matrixB, int k1B, int k2B, Calculator calculator) {
-        return new double[0][];
+        int counter1 = k1A;
+        int counter2 = k1B;
+        double result[][] = new double[matrixA.length][matrixA.length];
+        for(int i = 0; i<matrixA.length && i<counter1 && i<counter2; i++){
+            for(int j=0; j<matrixA.length && j<= i+2 ; j++){
+                for(int k = 0; k<matrixA.length && k<=i+2 ; k++){
+                    result[i][j] = calculator.sum(result[i][j], calculator.multiplication(matrixA[k][j],matrixB[i][k]));
+                }
+
+            }
+            counter1++;
+            counter2++;
+        }
+
+        return result;
     }
 
+    /**
+     *
+     * @param matrixA an upper triangular matrix
+     * @param matrixB a downwards triangular matrix
+     * @param calculator
+     * @return  the multiplication between the two matrices
+     */
     @Override
     public double[][] exerciseE(double[][] matrixA, double[][] matrixB, Calculator calculator) {
         double result[][] = new double[matrixA.length][matrixA.length];
