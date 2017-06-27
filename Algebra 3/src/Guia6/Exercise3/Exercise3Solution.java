@@ -1,6 +1,6 @@
 // Nombres: Tomas Varela, Franco Velardez
 // Guía: N°6
-// Ejercicio: 2)
+// Ejercicio: 3)
 
 package Guia6.Exercise3;
 
