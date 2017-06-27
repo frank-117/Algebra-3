@@ -17,12 +17,18 @@ public class Exercise3Solution implements Exercise3 {
     @Override
     public double[] exerciseAI(double[][] matrixA, double[] vectorX, Calculator calculator) {
         double[] result = new double[vectorX.length];
-        for(int i = 0; i<matrixA.length ; i++){
-            for(int j=0; j<matrixA[i].length && j<= i ; j++){
-                result[i] = calculator.sum(result[i], calculator.multiplication(matrixA[i][j], vectorX[j]));
+        if(matrixA[0].length == vectorX.length ) {
+            for(int j = 0; j < matrixA.length; j++) {
+                for(int i = 0; i <= j; i++){
+                    double addition = 0;
+                    for(int k = i; k <= j; k++){
+                        addition = calculator.sum(addition, calculator.multiplication(matrixA[i][k], vectorX[k]));
+                    }
+                    result[i] = addition;
+
+                }
             }
         }
-
         return result;
     }
 
@@ -35,13 +41,14 @@ public class Exercise3Solution implements Exercise3 {
      */
     @Override
     public double[][] exerciseAII(double[][] matrixA, double[][] matrixB, Calculator calculator) {
-        double result[][] = new double[matrixA.length][matrixA.length];
-        for(int i = 0; i<matrixA.length ; i++){
-            for(int j=0; j<matrixA[i].length && j<= i ; j++){
-                result[i][j] = calculator.sum(matrixA[i][j], matrixB[i][j]);
+        double[][] result = new double[matrixA.length][matrixA.length];
+        if(matrixA[0].length == matrixB.length ) {
+            for(int i = 0; i < matrixA.length; i++) {
+                for(int j = i; j < matrixA[0].length; j++) {
+                    result[i][j] = calculator.sum(matrixA[i][j], matrixB[i][j]);
+                }
             }
         }
-
         return result;
     }
 
@@ -54,16 +61,18 @@ public class Exercise3Solution implements Exercise3 {
      */
     @Override
     public double[][] exerciseAIII(double[][] matrixA, double[][] matrixB, Calculator calculator) {
-        double result[][] = new double[matrixA.length][matrixA.length];
-        for(int i = 0; i<matrixA.length ; i++){
-            for(int j=0; j<matrixA.length && j<= i ; j++){
-                for(int k = 0; k<matrixA.length && k<=i ; k++){
-                    result[i][j] = calculator.sum(result[i][j], calculator.multiplication(matrixA[k][j],matrixB[i][k]));
+        double[][] result = new double[matrixA.length][matrixB[0].length];
+        if(matrixA[0].length == matrixB.length ) {
+            for(int j = 0; j < matrixA.length; j++) {
+                for(int i = 0; i <= j; i++) {
+                    double addition = 0;
+                    for(int k = i; k <= j; k++) {
+                        addition = calculator.sum(addition, calculator.multiplication(matrixA[i][k], matrixB[k][j]));
+                    }
+                    result[i][j] = addition;
                 }
-
             }
         }
-
         return result;
     }
 
@@ -77,12 +86,15 @@ public class Exercise3Solution implements Exercise3 {
     @Override
     public double[] exerciseBI(double[][] matrixA, double[] vectorX, Calculator calculator) {
         double[] result = new double[vectorX.length];
-        for(int i = 0; i<matrixA.length ; i++){
-            for(int j=0; j<matrixA[i].length && j<= i+1 ; j++){
-                result[i] = calculator.sum(result[i], calculator.multiplication(matrixA[i][j], vectorX[j]));
+        if (matrixA[0].length == vectorX.length) {
+            for(int j = 0; j < matrixA.length; j++) {
+                double addition = 0;
+                for (int i = 0; i <= j && i < matrixA[0].length; i++) {
+                    addition = calculator.sum(addition, calculator.multiplication(matrixA[i][j], vectorX[j]));
+                }
+                result[result.length - 1 - j] = addition;
             }
         }
-
         return result;
     }
 
@@ -95,13 +107,14 @@ public class Exercise3Solution implements Exercise3 {
      */
     @Override
     public double[][] exerciseBII(double[][] matrixA, double[][] matrixB, Calculator calculator) {
-        double result[][] = new double[matrixA.length][matrixA.length];
-        for(int i = 0; i<matrixA.length ; i++){
-            for(int j=0; j<matrixA[i].length && j<= i+1 ; j++){
-                result[i][j] = calculator.sum(matrixA[i][j], matrixB[i][j]);
+        double[][] result = new double[matrixA.length][matrixB[0].length];
+        if(matrixA[0].length == matrixB.length ) {
+            for(int j = 0; j < matrixA.length; j++) {
+                for(int i = 0; i < j + 2 && i < matrixA.length; i++) {
+                    result[i][j] = calculator.sum(matrixA[i][j], matrixB[i][j]);
+                }
             }
         }
-
         return result;
     }
 
@@ -114,16 +127,18 @@ public class Exercise3Solution implements Exercise3 {
      */
     @Override
     public double[][] exerciseBIII(double[][] matrixA, double[][] matrixB, Calculator calculator) {
-        double result[][] = new double[matrixA.length][matrixA.length];
-        for(int i = 0; i<matrixA.length ; i++){
-            for(int j=0; j<matrixA.length && j<= i+2 ; j++){
-                for(int k = 0; k<matrixA.length && k<=i+2 ; k++){
-                    result[i][j] = calculator.sum(result[i][j], calculator.multiplication(matrixA[k][j],matrixB[i][k]));
+        double[][] result = new double[matrixA.length][matrixB[0].length];
+        if(matrixA[0].length == matrixB.length ){
+            for(int j = 0; j <= matrixA.length - 1; j++) {
+                for(int i = 0; i <= matrixA.length - 1; i++) {
+                    double addition = 0;
+                    for(int k = 0; k <= matrixA.length - 1; k++) {
+                        addition = calculator.sum(addition, calculator.multiplication(matrixA[i][k], matrixB[k][j]));
+                    }
+                    result[i][j] = addition;
                 }
-
             }
         }
-
         return result;
     }
 
@@ -281,16 +296,16 @@ public class Exercise3Solution implements Exercise3 {
      */
     @Override
     public double[][] exerciseE(double[][] matrixA, double[][] matrixB, Calculator calculator) {
-        double result[][] = new double[matrixA.length][matrixA.length];
-        for(int i = 0; i<matrixA.length ; i++){
-            for(int j=0; j<matrixA.length && j<= i+2 ; j++){
-                for(int k = 0; k<matrixA.length && k<=i+2 ; k++){
-                    result[i][j] = calculator.sum(result[i][j], calculator.multiplication(matrixA[k][j],matrixB[i][k]));
+        double[][] result = new double[matrixA[0].length][matrixB.length];
+        for (int i = 0; i < matrixA[0].length; i++) {
+            for (int k = 0; k < matrixB.length; k++) {
+                double addition = 0;
+                for (int j = 0, l = 0; j <= i && l <= k; j++, l++) {
+                    addition = calculator.sum(addition, calculator.multiplication(matrixA[i][j], matrixB[l][k]));
                 }
-
+                result[i][k] = addition;
             }
         }
-
         return result;
     }
 }

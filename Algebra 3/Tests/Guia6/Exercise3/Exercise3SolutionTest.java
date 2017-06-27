@@ -13,13 +13,13 @@ public class Exercise3SolutionTest extends CalculatorAbstract {
 
     @Test
     public void exerciseAI() throws Exception {
-        double[][] matrix = { {3,0,0}, {5,3,0}, {4,8,5} };
-        double[] vector = {3,5,2};
+        double[][] matrix = { {3, 2, 4}, {0, 8, 6}, {0, 0, 1} };
+        double[] vector = {3, 5, 2};
         Exercise3Solution exercise = new Exercise3Solution();
         double[] result = exercise.exerciseAI(matrix, vector, calculator);
-        assertEquals(result[0], 9, 0.1);
-        assertEquals(result[1], 30, 0.1);
-        assertEquals(result[2], 62, 0.1);
+        assertEquals(result[0], 27, 0);
+        assertEquals(result[1], 52, 0);
+        assertEquals(result[2], 2, 0);
     }
 
     @Test
